@@ -16,17 +16,22 @@ def signup(request):
     name = request.data.get("name")
     address = request.data.get("address")
 
-    auth_user = User.objects.create_user(
-        username=username,
-        password=password,
-        email=email,
-    )
-    user_profile = UserProfile.objects.create(
-        auth_user=auth_user,
-        name=name,
-        phone=phone,
-        address=address,
-    )
+    try:
+
+        auth_user = User.objects.create_user(
+            username=username,
+            password=password,
+            email=email,
+        )
+        user_profile = UserProfile.objects.create(
+            auth_user=auth_user,
+            name=name,
+            phone=phone,
+            address=address,
+        )
+    except Exception as e:
+        return Response({"status": "error", "message": str(e)})
+
     return Response({"status": "success"})
 
 
