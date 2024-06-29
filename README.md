@@ -1,43 +1,34 @@
 
+# Sweet Pants Furniture Renting Application
 
-# Sweet Pants E-commerce Application
+Sweet Pants is a Django-based platform designed for renting furniture, facilitating transactions between renters and customers. It provides essential features for managing inventory, bookings, and user interactions.
 
-Sweet Pants is an advanced e-commerce platform built with Django, designed to facilitate seamless transactions between vendors and customers. It offers a robust set of features aimed at enhancing functionality and user experience throughout various stages of development.
-
-## Overview
-
-This repository hosts an e-commerce application with comprehensive capabilities:
+## Features
 
 ### Authentication and User Management:
-
-- Utilizes Django's authentication system to manage vendors and customers separately.
-- Vendors can register, manage their product listings, and monitor orders associated with their products.
-- Customers can register, view order history, and manage their profiles.
+- Separate authentication for renters and customers.
+- Renters can manage furniture listings and track booking details.
+- Customers can view rental history, manage profiles, and use a wishlist.
 
 ### Core Functionality:
-
-- Efficient database models structured for managing users, products, orders, and reviews.
-- Supports essential vendor actions such as product management and order tracking.
-- Customers can add funds to their accounts and place orders based on available balances and product availability.
-- Features a dynamic home page listing all available items, prioritizing top-selling products.
+- Efficient database models for users, furniture items, bookings, and reviews.
+- Renters can add and manage furniture listings, and view booking details.
+- Customers can view available items, select rental dates, and place orders.
 
 ### Additional Features:
-
-- Integration of OAuth for Google sign-in using Django Allauth for enhanced user authentication.
-- Automated email notifications to vendors upon customer purchases, powered by the Mailjet API.
-- Migration from SQLite to PostgreSQL for robust and scalable database management.
-- Vendor-specific reporting capabilities with CSV/Excel exports for detailed sales analysis.
-- Advanced ordering system allowing customers to purchase multiple items simultaneously using a shopping cart model.
-- Wishlist functionality enabling customers to save desired items for future purchase.
+- Integration of Google OAuth for secure sign-in using Django Allauth.
+- Email notifications to renters on customer bookings via Mailjet API.
+- Migration from SQLite to PostgreSQL for robust data management.
+- Renters can generate CSV/Excel reports for rental history analysis.
+- Enhanced booking system with shopping cart and wishlist functionalities.
 
 ### Deployment:
-
-- Deployed on DigitalOcean using Docker, Nginx, and Gunicorn to ensure a scalable and secure hosting environment.
-- Configured for production readiness with customizable Django settings to suit development and production environments.
+- Deployed on DigitalOcean using Docker, Nginx, and Gunicorn.
+- Configured for scalability and security in production environments.
 
 ## Setup
 
-To set up the project locally, follow these steps:
+To set up the project:
 
 1. Clone the repository:
    ```bash
@@ -45,7 +36,7 @@ To set up the project locally, follow these steps:
    cd sweetpants
    ```
 
-2. Create a `keyconfig.py` file in the same directory as `settings.py` with the following content:
+2. Create a `keyconfig.py` file in the same directory as `settings.py`:
    ```python
    # Django settings
    SECRET_KEY = 'your_secret_key_here'
@@ -60,47 +51,16 @@ To set up the project locally, follow these steps:
    MJ_APIKEY_PRIVATE = 'your_mailjet_private_key'
    ```
 
-3. Customize Django settings as per your environment (development or production).
+3. Customize Django settings for your environment (development or production).
 
-4. Set up Django admin groups 'Customer' and 'Vendor' for user permissions.
+4. Set up Django admin groups 'Customer' and 'Renter' for user permissions.
 
 ## Usage
 
-Access the live application by navigating to the IP address of your DigitalOcean droplet.
+Access the application by navigating to the IP address of your DigitalOcean droplet.
 
-## Full-Stack Application for Furniture Renting
-
-For a comprehensive furniture renting application, development involves creating both frontend and backend components to manage user interactions, inventory, payments, and booking processes.
-
-### Core Features
-
-#### User Authentication and Profiles
-
-- Enable user registration, login, and account management.
-- Allow users to create profiles, update information, and view rental history.
-
-#### Furniture Listings
-
-- Display a catalog of available furniture items for rent.
-- Include detailed item descriptions, rental prices, availability status, and high-quality images.
-
-#### Search and Filter
-
-- Implement search functionality for users to find specific furniture items by keywords, categories, or attributes.
-- Provide filtering options based on price range, item type, location, etc.
-
-#### Booking and Reservation
-
-- Enable users to select rental dates, add items to their cart or wishlist, and confirm reservations.
-- Manage availability calendars and booking statuses for effective rental management.
-
-#### Payment Integration
-
-- Integrate secure online payment gateways (e.g., UPI, Stripe) to facilitate payment processing for rentals.
-- Provide users with payment confirmation and detailed receipts for transparency.
-
-For detailed code and further instructions, visit our [project repository](www.detrace.systems/ecommerce/).
+For more details and code, visit the [project repository](www.detrace.systems/ecommerce/).
 
 ---
 
-This format aims to present a clear and structured overview of your e-commerce application while highlighting its key features and setup instructions for potential users and contributors.
+This version of the README provides a concise overview of your furniture renting application, focusing on its features, setup instructions, and deployment details.
