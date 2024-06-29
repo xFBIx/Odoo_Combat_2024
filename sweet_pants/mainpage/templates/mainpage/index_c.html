@@ -20,9 +20,6 @@
 	<section class="products section bg-gray">
         <div class="container">
             <div class="row">
-                <div class="title text-center">
-                    <h2>All Products</h2>
-                </div>
                 <!-- Add the filter form here -->
                 <form method="GET" action="{% url 'customer-homepage' %}" class="form-inline">
     <input type="text" name="search" placeholder="Search products" value="{{ request.GET.search }}" class="form-control">
@@ -46,14 +43,11 @@
 </form>
                 <!-- End of filter form -->
     	<a href="{% url 'customer-homepage' %}?clear_filters=1" class="btn btn-secondary">Clear All Filters</a>
-                <div class="top-menu text-right list-inline">
-                    <h5>Sort by Highest Selling</h5>
-                    <br>
-                </div>
             </div>
             <!-- Rest of the product listing code -->
         </div>
     </section>
+	{% if customer_products %}
 	<section class="products section bg-gray">
 		<div class="container">
 			<div class="row">
@@ -126,6 +120,18 @@
 
 		</div>
 	</section>
+	{% else %}
+	<section class="empty-cart page-wrapper">
+	<div class="container">
+	  	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+		  		<div class="block text-center">
+					<h2 class="text-center">No Products Available for these filters!</h2>
+				</div>
+	  		</div>
+		</div>
+</section>
+	{% endif %}
 {% endif %}
 
 <!-- VENDOR HOMEPAGE -->
