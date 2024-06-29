@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from typing import List
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,25 @@ SECRET_KEY = "django-insecure-r$do&5mmbxsoavciuiz_-xlj45150zo6h0ep3+@g9jyq8&)+yr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = ["*"]
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS: List[str] = [
+    "https://detrace.systems",
+    "http://detrace.systems",
+    "https://www.detrace.systems",
+    "http://www.detrace.systems",
+]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+STATIC_ROOT = "/opt/project/staticfiles"
+STATIC_URL = "/ecommerce/static/"
+
+MEDIA_ROOT = "/opt/project/mediafiles"
+MEDIA_URL = "/ecommerce/media/"
 
 # Application definition
 
@@ -37,6 +55,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third party
+    "rest_framework",
+    "rest_framework_simplejwt",
+    # Apps
     "users.apps.UsersConfig",
 ]
 
@@ -76,8 +98,13 @@ WSGI_APPLICATION = "project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "odoo",
+        "USER": "odoo",
+        "PASSWORD": "odoo",
+        "HOST": "db_odoo",
+        "PORT": "5432",
+        "ATOMIC_REQUESTS": True,
     }
 }
 
