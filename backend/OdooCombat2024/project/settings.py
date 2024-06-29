@@ -41,10 +41,10 @@ INTERNAL_IPS = [
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 STATIC_ROOT = "/opt/project/staticfiles"
-STATIC_URL = "/ecommerce/static/"
+STATIC_URL = "/odoo/static/"
 
 MEDIA_ROOT = "/opt/project/mediafiles"
-MEDIA_URL = "/ecommerce/media/"
+MEDIA_URL = "/odoo/media/"
 
 # Application definition
 
