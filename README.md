@@ -3,6 +3,8 @@
 
 Sweet Pants is a Django-based platform designed for renting furniture, facilitating transactions between renters and customers. It provides essential features for managing inventory, bookings, and user interactions.
 
+https://detrace.systems/ecommerce/
+
 ## Features
 
 ### Authentication and User Management:
